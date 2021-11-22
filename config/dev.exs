@@ -1,9 +1,10 @@
 import Config
+import_config "secret.exs"
 
 # Configure your database
 config :project_management_example, ProjectManagementExample.Repo,
   username: "postgres",
-  password: "postgres",
+  password: System.fetch_env!("ENV_PASSWORD"),
   database: "project_management_example_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
